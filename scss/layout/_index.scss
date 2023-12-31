@@ -1,0 +1,17 @@
+main{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    a{
+        button{
+            border-radius: 50px;
+            width: 200px;
+            height: 25px;
+            box-shadow: 5px 5px 5px black;
+            color: rgb(0, 0, 0);
+            background-color: rgb(187, 187, 187);
+        }
+    }
+}
