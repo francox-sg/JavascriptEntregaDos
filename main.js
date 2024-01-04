@@ -1,14 +1,21 @@
 /* 
 Este programa gestionará los productos de un E-Commerce y posibilitará armar un carrito, cuyas funcionalidades son:
-•Agregar y eliminar Productos de la Tienda
-•Mostrar Productos de la Tienda
-•Agregar y Eliminar Productos del Carrito 
-•Mostrar Productos del Carrito
+    - Gestionar Tienda -
+    1 - Ver toda la Tienda
+    2 - Agregar Producto a Tienda
+    3 - Eliminar Producto de Tienda
+
+    - Comprar -
+    4 - Agregar al Carrito buscando Producto
+    5 - Eliminar Producto del Carrito
+    6 - Ver Carrito
+    7 - Pagar
+
+    0 - Salir
+
+Los Items se seleccionarán a traves de su ID, tambien se podrá buscar en la tienda (Solo implementado para busquedas por Nombre o fracciones del mismo. Ej: "Cam" para "Campera" ) 
 
 Ademas contará con productos Predefinidos  de la Tienda para facilitar las pruebas.
-
-MEJORAS: funcion validarNumero(mensajePrompt) --> dentro hay un prompt y devuelve un valor solo si es un numero
-
 
 */
 /* Clases de Productos */
@@ -132,8 +139,8 @@ while(correrPrograma){
             }
             break;            
         case 4: /* Agregar al Carrito buscando Producto */                                  
-            let resultadoBusqueda = tienda.buscador(prompt("Ingrese busqueda"));
-            let agregarID= Number(prompt(`Indique el ID para agregar al carrito, o "0" pasa salir
+            let resultadoBusqueda = tienda.buscador(prompt("Ingrese busqueda por Nombre (o Visualize la Tienda entera sin poner parametro de Busqueda)"));
+            let agregarID= Number(prompt(`Indique el ID para agregar al carrito, o "0" para salir
             ${productosToString(resultadoBusqueda)}`));
             if(agregarID != 0){
                 let IDsTienda = tienda.productos.map((item) => item.id);
@@ -178,25 +185,3 @@ while(correrPrograma){
     }
 
 }
-
-
-
-
-
-
-
-
-
-/* 
-Prueba de array.filter
-
-console.log(tienda.productos.filter( (item) => item.nombre.includes("Campera")));
-*/
-
-/* 
-Probar carrito.total
-
-carrito.productos.push(tienda.productos[1]);
-carrito.productos.push(tienda.productos[2]);
-console.log(carrito.total()); 
-*/
